@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="icon" href="icons-stethoscope.png">
+        <title>Rumah Sakit Sakit Sekali</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Krona+One|Sura" rel="stylesheet">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            /* Style the header */
+            header {
+                font-family:'Krona One', sans-serif;
+                font-size: 30px; 
+                color: #00aaff;
+                /*background-color: #00aaff;*/
+                padding: 20px;
+                text-align: center;
+                background-image: url("bg50.jpg");
+                background-size: cover;
+            }
+
+            /* Create two columns/boxes that floats next to each other */
+            nav {
+                float: left;
+                width: 30%;
+                height: 600px;
+                font-family: trebuchet ms;
+                background: #99dfff;
+                padding: 20px;
+                text-align: left;
+                /*background-image: url("img1.png");*/
+                background-image: url("doctor-img2.png");
+                background-position: left bottom;
+                background-repeat: no-repeat;
+                background-size: 400px;
+            }
+
+            article {
+                float: left;
+                padding: 20px;
+                width: 70%;
+                background-color: white;
+                height: 600px;                 
+                font-family: trebuchet ms;
+                background-image: url("sky.png");
+                background-repeat: no-repeat;
+                background-position: right;
+                background-size: 335px;
+            }
+
+            /* Clear floats after the columns */
+            section:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /* Style the footer */
+            footer {
+                background-color: burlywood;
+                padding: 10px;
+                text-align: center;
+                font-family:palatino; 
+                font-size: 20px; 
+                color: darkmagenta;
+            }
+
+            /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+            @media (max-width: 600px) {
+                nav, article {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        </style>
+        <!--css menu-->
+        <style>
+            body {
+                margin: 0;
+                /*font-family: Arial, Helvetica, sans-serif;*/
+                font-family: trebuchet ms;
+            }
+
+            .topnav {
+                overflow: hidden;
+                background-color: #00bfff;
+            }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            .topnav a:hover {
+                background-color: white;
+                color: black;
+            }
+
+            .topnav a.active {
+                /*background-color: #4CAF50;*/
+                background-color: white;
+                color: black;
+            }
+        </style>
+        <!--css dropdown menu-->
+        <style>
+            /* Navbar container */
+            .navbar {
+                overflow: hidden;
+                background-color: #00bfff;
+                font-family: trebuchet ms;
+            }
+
+            /* Links inside the navbar */
+            .navbar a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                font-family: trebuchet ms;
+                /*text-decoration: none;*/
+            }
+
+            /* The dropdown container */
+            .dropdown {
+                float: left;
+                overflow: hidden;
+            }
+
+            /* Dropdown button */
+            .dropdown .dropbtn {
+                font-size: 17px; 
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: #00bfff;
+                font-family: trebuchet ms; /* Important for vertical align on mobile phones */
+                margin: 0; /* Important for vertical align on mobile phones */
+            }
+
+            /* Add a white background color to navbar links on hover */
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                color: black;
+                background-color: white;
+            }
+
+            /* Dropdown content (hidden by default) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #00bfff;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+                background-color: white;
+            }
+
+            /* Add a blue background color to dropdown links on hover */
+            .dropdown-content a:hover {
+                background-color: #99dfff;
+            }
+
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        </style>        
+    </head>
+    <body>
+        <header>
+            <h1>Rumah Sakit Sakit Sekali</h1>            
+            <p style="text-align: center; color: #007399; font-family: 'Sura', serif; font-size: 20px">
+                Jalan Ratudibalau No. 15 Bandarlampung 55282</p>
+        </header>
+
+        <div class="topnav">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Pendaftaran</button>
+                <div id="dropMenu" class="dropdown-content">
+                    <a href="daftarPasien.html">Pendaftaran Pasien Baru</a>
+                    <a href="login.html">Pendaftaran Pasien Berobat</a>
+                    <a href="login.html">Pendaftaran Dokter Baru</a>
+                    <a href="login.html">Pendaftaran Klinik Baru</a>
+                    <a href="login.html">Pendaftaran Lokasi Klinik</a>
+                    <!--<a href="daftarBerobat.html" class="current">Pendaftaran Pasien Berobat</a>-->
+<!--                    <a href="dokterAdd.html">Pendaftaran Dokter Baru</a>
+                    <a href="klinikAdd.html">Pendaftaran Klinik Baru</a>
+                    <a href="locationAdd.html">Pendaftaran Lokasi Klinik</a>                     -->
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Layanan</button>
+                <div id="dropMenu" class="dropdown-content">
+                    <a href="dokter.html">Daftar Dokter</a>
+                    <a href="klinik.html">Daftar Klinik</a> 
+                    <a href="Antrean.html">Daftar Antrean</a>
+                </div>
+            </div>
+            <a href="login.html">Login</a>
+        </div>
+
+        <section id="register" class="">            
+            <nav>
+                <h3>Pendaftaran Pasien Berobat</h3>
+                <p>Silakan isikan data diri Anda</p>
+                <!--                <p>Cukup dengan mengisikan NIK yang telah terdaftar</p>-->
+            </nav>
+
+            <article>
+                <h3 style="text-align: center;"><b><u>Pendaftaran Pasien Berobat & Konsultasi</u></b></h3>
+                <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
+                    <div class="container"><br><br>
+                        <div class ="form-group">
+                            <label for="noRm">No. Rekam Medis</label><br>
+                            <input type="text" placeholder="Enter No. RM" id="noRm" required/>
+                            <!--<button type="button" onclick="loadDoc()" id="btn">OK</button><br><br>-->
+                            <!--<h6><i>*Isikan No. RM yang telah terdaftar</i></h6>-->
+                            <!--<p id="output"></p>-->
+                        </div><br><!--<br>-->                        
+                        <div class ="form-group">
+                            <label for="nama">Nama</label><br>
+                            <input type="text" placeholder="Enter Nama" id="nama" required/>
+                        </div><br>
+                        <div class ="form-group">
+                            <label for="alamat">Alamat Tinggal</label><br>
+                            <input type="text" placeholder="Enter Alamat" id="alamat" required/>
+                        </div><br>
+                        <!--<div><h6><i>**Nama dan Alamat akan terisi otomatis</i></h6></div><br>-->
+
+                        <div class="form-group">
+                            <label for="tanggal">Tanggal Berobat</label><br>
+                            <input type="date" placeholder="Enter Tanggal Berobat" id="tanggal" required/>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="klinik">Klinik</label><br>                            
+                        </div>
+                        <div>
+                            <select name="klinik">
+                                <option label="--Silakan Pilih--"></option>
+                                <option value="Umum">Umum</option>
+                                <option value="Ibu dan Anak">Ibu dan Anak</option>
+                                <option value="Gigi">Gigi</option>
+                                <option value="Mata">Mata</option>
+                                <option value="Syaraf">Syaraf</option>
+                                <option value="Kulit dan Kelamin">Kulit dan Kelamain</option>
+                                <option value="Orthopedic">Orthopedic</option>                                
+                                <option value="Ginjal">Ginjal</option>
+                                <option value="Jantung">Jantung</option>
+                                <option value="Bedah">Bedah</option>
+                                <option value="Rawat Jalan">Rawat Jalan</option>
+                                <option value="Rawat Inap">Rawat Inap</option>
+                            </select>
+                        </div><br>
+                        <div class="clearfix">
+                            <button id="save" type="submit" class="signup">Daftar</button>
+                        </div><br><br>
+                    </div>
+                    <p id="output"></p>
+                </form>
+            </article>
+        </section>
+
+        <script>
+            function make_json(form) {
+                var json = {
+                    "noRM": form.noRm.value,
+                    "nama": form.nama.value,
+                    "alamat": form.alamat.value,
+                    "tanggal": form.tanggal.value,
+                    "namaKlinik": form.klinik.value,
+                };
+                var html = JSON.stringify(json, 0, 100);
+//                var url = "http://202.94.83.190:8080/165314035_rskuServices/webresources/antrean/addAntrian";
+                var url = "http://localhost:8084/165314035_rskuServices/webresources/antrean/addAntrian";
+                var xhttp = new XMLHttpRequest();
+                xhttp.open('POST', url, false);
+                xhttp.setRequestHeader("Content-type", "application/json");
+                xhttp.send(html);
+
+                alert(html);
+                document.getElementById("output").innerHTML = html;
+                return false;
+            }
+        </script>
+
+        <footer>
+            <p>Kritik dan Saran (0721)-74032576</p>
+        </footer>
+
+    </body>
+</html>
+
