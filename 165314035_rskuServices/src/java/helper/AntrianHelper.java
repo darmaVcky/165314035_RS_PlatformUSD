@@ -41,4 +41,20 @@ public class AntrianHelper {
         transaction.commit();
         session.close();
     }
+    
+    public List<Antrian> cariAtrian(String noRm) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        String query = "from Antrian an where an.noRm=:noRm";
+        Query q = session.createQuery(query);
+        q.setParameter("noRm", noRm);
+        List<Antrian> list = q.list();
+        transaction.commit();
+        session.close();
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    }
 }

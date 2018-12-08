@@ -41,4 +41,20 @@ public class PasienHelper {
         transaction.commit();
         session.close();
     }
+    
+    public List<Pasien> cariPasien (String noRm){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        String query = "from Pasien p where p.noRm=:noRm";
+        Query q = session.createQuery(query);
+        q.setParameter("noRm", noRm);
+        List<Pasien> list = q.list();
+        transaction.commit();
+        session.close();
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    } 
 }
