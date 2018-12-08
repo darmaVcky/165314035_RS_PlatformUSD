@@ -215,6 +215,7 @@ and open the template in the editor.
                     <a href="dokter.html">Daftar Dokter</a>
                     <a href="klinik.html">Daftar Klinik</a> 
                     <a href="Antrean.html">Daftar Antrean</a>
+                    <a href="pasien.html">Daftar Pasien</a>
                 </div>
             </div>
             <a href="../login.html">Logout</a>
@@ -247,7 +248,7 @@ and open the template in the editor.
                             <button id="save" type="submit" class="signup">Simpan</button>
                         </div><br><br>
                     </div>
-                    <p id="output"></p>
+                    <!--<p id="output"></p>-->
                 </form>
             </article>
         </section>
@@ -260,14 +261,15 @@ and open the template in the editor.
                     "name": form.nama.value,
                 };
                 var html = JSON.stringify(json, 0, 100);
-//                var url = "http://202.94.83.190:8080/165314035_rskuServices/webresources/antrean/addAntrian";
-                var url = "http://localhost:8084/165314035_rskuServices/webresources/location/addLocation";
+                var url = "http://202.94.83.190:8080/165314035_rskuServices/webresources/location/addLocation";
+//                var url = "http://localhost:8084/165314035_rskuServices/webresources/location/addLocation";
                 var xhttp = new XMLHttpRequest();
                 xhttp.open('POST', url, false);
                 xhttp.setRequestHeader("Content-type", "application/json");
                 xhttp.send(html);
 
-                alert(html);
+//                alert(html);
+                alert("PENDAFTARAN LOKASI KLINIK BERHASIL");
                 document.getElementById("output").innerHTML = html;
                 return false;
             }

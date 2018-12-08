@@ -206,7 +206,6 @@ and open the template in the editor.
                 <div id="dropMenu" class="dropdown-content">
                     <a href="daftarPasien.html" class="current">Pendaftaran Pasien Baru</a>
                     <a href="daftarBerobat.html">Pendaftaran Pasien Berobat</a>
-                    <!--<a href="login.html">Pendaftaran Pasien Berobat</a>-->
                     <a href="dokterAdd.html">Pendaftaran Dokter Baru</a>
                     <a href="klinikAdd.html">Pendaftaran Klinik Baru</a>
                     <a href="locationAdd.html">Pendaftaran Lokasi Klinik</a>                     
@@ -218,6 +217,7 @@ and open the template in the editor.
                     <a href="dokter.html">Daftar Dokter</a>
                     <a href="klinik.html">Daftar Klinik</a> 
                     <a href="Antrean.html">Daftar Antrean</a>
+                    <a href="pasien.html">Daftar Pasien</a>
                 </div>
             </div>
             <a href="../login.html">Logout</a>
@@ -268,7 +268,7 @@ and open the template in the editor.
                             <button id="save" type="submit" class="signup">Daftar</button>
                         </div><br><br>
                     </div>
-                    <p id="output"></p>
+                    <!--<p id="output"></p>-->
                 </form>
             </article>
         </section>
@@ -281,7 +281,7 @@ and open the template in the editor.
                     "alamat": form.alamat.value,
                     "nik": form.nik.value,
                     "tanggalLahir": form.tanggalLahir.value,
-                    "kelamin": form.kelamin.value,
+                    "kelamin": form.kelamin.value
                 };
                 var html = JSON.stringify(json, 0, 100);
 //                var Url = "http://202.94.83.190:8080/rsku/webresources/pasien/addPasien";
@@ -291,7 +291,8 @@ and open the template in the editor.
                 xhr.setRequestHeader("Content-type", "application/json");
                 xhr.send(html);
 
-                alert(html);
+//                alert(html);
+                alert("PENDAFTARAN BERHASIL");
                 document.getElementById("output").innerHTML = html;
                 return false;
             }

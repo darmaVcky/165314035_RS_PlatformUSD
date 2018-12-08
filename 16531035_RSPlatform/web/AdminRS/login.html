@@ -214,7 +214,8 @@ and open the template in the editor.
                 <div id="dropMenu" class="dropdown-content">
                     <a href="dokter.html">Daftar Dokter</a>
                     <a href="klinik.html">Daftar Klinik</a>
-                    <a href="Antrean.html">Daftar Antrean</a>                    
+                    <a href="Antrean.html">Daftar Antrean</a>
+                    <a href="pasien.html">Daftar Pasien</a>                    
                 </div>
             </div>
             <a href="../login.html">Logout</a>
@@ -227,25 +228,25 @@ and open the template in the editor.
             </nav>
 
             <article>
-<!--                <h3 style="text-align: center;"><b><u>Login</u></b></h3>
-                <form>
-                    <form>
-                    <div class="container">
-                        <br><div class ="form-group">
-                            <label for="email">Email</label><br>
-                            <input type="text" placeholder="Enter Email" id="email" required/>
-                        </div><br>
-                        <div class ="form-group">
-                            <label for="password">Password</label><br>
-                            <input type="password" placeholder="Enter Password" id="password" required/>
-                        </div><br><br>
-
-                        <div class="clearfix">
-                            <button type="button" class="button" onclick="doLogin()">Login</button>
-                        </div><br><br>
-                    </div>
-                    <div id="output"></div>
-                </form>-->
+                <!--                <h3 style="text-align: center;"><b><u>Login</u></b></h3>
+                                <form>
+                                    <form>
+                                    <div class="container">
+                                        <br><div class ="form-group">
+                                            <label for="email">Email</label><br>
+                                            <input type="text" placeholder="Enter Email" id="email" required/>
+                                        </div><br>
+                                        <div class ="form-group">
+                                            <label for="password">Password</label><br>
+                                            <input type="password" placeholder="Enter Password" id="password" required/>
+                                        </div><br><br>
+                
+                                        <div class="clearfix">
+                                            <button type="button" class="button" onclick="doLogin()">Login</button>
+                                        </div><br><br>
+                                    </div>
+                                    <div id="output"></div>
+                                </form>-->
             </article>
         </section>
 
@@ -262,7 +263,7 @@ and open the template in the editor.
                     if (this.readyState == 4 && this.status == 200) {
                         var user = JSON.parse(this.responseText);
                         if (user !== null) {
-                            var myWin = window.open("home.html","_self");
+                            var myWin = window.open("home.html", "_self");
                         } else {
                             alert("Login Gagal");
                         }

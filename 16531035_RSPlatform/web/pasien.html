@@ -4,9 +4,12 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html lang="en">
+<html>
     <head>
         <link rel="icon" href="icons-stethoscope.png">
+        <!--        <link rel="stylesheet" href="footable.standalone.css" type="text/css">
+                <link rel="stylesheet" href="footable.standalone.min.css" type="text/css">-->
+        <link rel="stylesheet" href="style.css" type="text/css">
         <title>Rumah Sakit Sakit Sekali</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,9 +36,8 @@ and open the template in the editor.
             /* Create two columns/boxes that floats next to each other */
             nav {
                 float: left;
-                width: 30%;
-                height: 550px;
-                /*height: max-content;*/
+                width: 15%;
+                height: 500px;
                 font-family: trebuchet ms;
                 background: #99dfff;
                 padding: 20px;
@@ -47,14 +49,9 @@ and open the template in the editor.
                 padding: 20px;
                 width: 70%;
                 background-color: white;
-                /*height: 550px;*/
-                height: auto;
+                height: 500px; 
                 text-align: center;
-                font-family: trebuchet ms;
-                background-image: url("hospital25.jpg");
-                background-repeat: no-repeat;
-                background-position: bottom;
-                background-size: 950px;
+                font-family: trebuchet ms;               
             }
 
             /* Clear floats after the columns */
@@ -194,6 +191,32 @@ and open the template in the editor.
                 display: block;
             }
         </style>
+        <!--css maps-->
+        <style>
+            /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+            #map {
+                /*height: 100%;*/
+                height: 65%;
+            }
+            /* Optional: Makes the sample page fill the window. */
+            html, body {
+                height: 100%;
+                /*height: 50%;*/
+                /*width: 50%;*/
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+        <!--CSS TABLE-->
+        <style>
+            .table-wrapper-scroll-y {
+                display: block;
+                max-height: 450px;
+                overflow-y: auto;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+            }
+        </style>
     </head>
     <body>     
         <header>
@@ -209,14 +232,20 @@ and open the template in the editor.
                 <button class="dropbtn">Pendaftaran</button>
                 <div id="dropMenu" class="dropdown-content">
                     <a href="daftarPasien.html">Pendaftaran Pasien Baru</a>
-                    <a href="daftarPasien.html">Pendaftaran Pasien Berobat</a>                    
+                    <a href="daftarPasien.html">Pendaftaran Pasien Berobat</a>
+                    <!--<a href="login.html">Pendaftaran Pasien Berobat</a>-->
+                    <a href="login.html">Pendaftaran Dokter Baru</a>
+                    <a href="login.html">Pendaftaran Klinik Baru</a>
+                    <a href="login.html">Pendaftaran Lokasi Klinik</a>                     
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn">Layanan</button>
                 <div id="dropMenu" class="dropdown-content">
                     <a href="dokter.html">Daftar Dokter</a>
-                    <a href="klinik.html">Daftar Klinik</a>                    
+                    <a href="klinik.html">Daftar Klinik</a>
+                    <a href="login.html">Daftar Antrean</a>
+                    <a href="login.html">Daftar Pasien</a>                    
                 </div>
             </div>
             <a href="login.html">Login</a>
@@ -224,52 +253,45 @@ and open the template in the editor.
 
         <section>            
             <nav>
-                <br><h3>Daftar Pasien</h3>
-                <!--<p>Klinik Rumah Sakit Sakit Sekali adalah klinik yang ahli pada spesialisasinya</p>-->
-                <p>Klinik kami selalu siap melayani dan dengan sepenuh hati membantu proses penyembuhan Anda</p>
+                <h3>Daftar Pasien</h3>
+                <div id="map"></div>                
             </nav>
 
             <article>
-                <h1><u>Tabel Daftar Pasien</u></h1><br>
-                
                 <p id="demo"></p>
-
                 <script>
-//                    function tabelDokter() {
-                        var url = "http://202.94.83.190:8080/165314035_rskuServices/webresources/pasien";
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange=function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                loopingList(this.responseText);
-                            }
+                    var url = "http://202.94.83.190:8080/165314035_rskuServices/webresources/pasien";
+//                    var url = "http://localhost:8084/165314035_rskuServices/webresources/antrean";
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            loopingList(this.responseText);
                         }
-                        xmlhttp.open("GET", url, true);
-                        xmlhttp.send();
+                    }
+                    xmlhttp.open("GET", url, true);
+                    xmlhttp.send();
 
-                        function loopingList(response) {
-                            var size = JSON.parse(response);
-                            var i;
-                            var out = "<table align='center' style='width: 60%;' border='1'> <tr><td>No RM</td><td>Nama Pasien</td><td>Alamat</td><td>NIK</td><td>Tanggal Lahir</td><td>Kelamin</td></tr>";
+                    function loopingList(response) {
+                        var size = JSON.parse(response);
+                        var i;
+                        var out = "<table align='center' style='width: 108%;' border='1' class='table-wrapper-scroll-y'><thead><tr><th>No. Rekam Medis</th><th>Nama Pasien</th><th>Alamat Pasien</th><th>Nomor Induk Kependudukan</th><th>Tanggal Lahir</th><th>Jenis Kelamin</th></tr></thead>";
 
-                            for(i = 0; i < size.length; i++) {
-                                out += "<tr><td>" +size[i].noRm +
-                                    "</td><td>" +size[i].nama + 
-                                    "</td><td>" +size[i].alamat +
-                                    "</td><td>" +size[i].nik +
-                                    "</td><td>" +size[i].tanggalLahir +
-                                    "</td><td>" +size[i].kelamin +
-                                    "</td></tr>";
-                            }
-                            out += "</table>";
-                            document.getElementById("demo").innerHTML = out;
-;
+                        for (i = 0; i < size.length; i++) {
+                            out += "<tbody><tr><td>" + size[i].noRm +
+                                    "</td><td>" + size[i].nama +
+                                    "</td><td>" + size[i].alamat +
+                                    "</td><td>" + size[i].nik +
+                                    "</td><td>" + size[i].tanggalLahir +
+                                    "</td><td>" + size[i].kelamin +
+                                    "</td></tr></tbody>";
                         }
-//                    }
+                        out += "</table>";
+                        document.getElementById("demo").innerHTML = out;
+                        ;
+                    }
                 </script>
             </article>
         </section>
-
-
 
         <footer>
             <p>Kritik dan Saran (0721)-74032576</p>
@@ -277,4 +299,3 @@ and open the template in the editor.
 
     </body>
 </html>
-

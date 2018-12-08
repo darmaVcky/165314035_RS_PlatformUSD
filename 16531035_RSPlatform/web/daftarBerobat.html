@@ -32,7 +32,7 @@ and open the template in the editor.
             nav {
                 float: left;
                 width: 30%;
-                height: 600px;
+                height: 700px;
                 font-family: trebuchet ms;
                 background: #99dfff;
                 padding: 20px;
@@ -49,7 +49,7 @@ and open the template in the editor.
                 padding: 20px;
                 width: 70%;
                 background-color: white;
-                height: 600px;                 
+                height: 700px;                 
                 font-family: trebuchet ms;
                 background-image: url("sky.png");
                 background-repeat: no-repeat;
@@ -204,14 +204,10 @@ and open the template in the editor.
                 <button class="dropbtn">Pendaftaran</button>
                 <div id="dropMenu" class="dropdown-content">
                     <a href="daftarPasien.html">Pendaftaran Pasien Baru</a>
-                    <a href="login.html">Pendaftaran Pasien Berobat</a>
+                    <a href="daftarBerobat.html" class="current">Pendaftaran Pasien Berobat</a>
                     <a href="login.html">Pendaftaran Dokter Baru</a>
                     <a href="login.html">Pendaftaran Klinik Baru</a>
-                    <a href="login.html">Pendaftaran Lokasi Klinik</a>
-                    <!--<a href="daftarBerobat.html" class="current">Pendaftaran Pasien Berobat</a>-->
-<!--                    <a href="dokterAdd.html">Pendaftaran Dokter Baru</a>
-                    <a href="klinikAdd.html">Pendaftaran Klinik Baru</a>
-                    <a href="locationAdd.html">Pendaftaran Lokasi Klinik</a>                     -->
+                    <a href="login.html">Pendaftaran Lokasi Klinik</a>                     
                 </div>
             </div>
             <div class="dropdown">
@@ -219,10 +215,11 @@ and open the template in the editor.
                 <div id="dropMenu" class="dropdown-content">
                     <a href="dokter.html">Daftar Dokter</a>
                     <a href="klinik.html">Daftar Klinik</a> 
-                    <a href="Antrean.html">Daftar Antrean</a>
+                    <a href="login.html">Daftar Antrean</a>
+                    <a href="login.html">Daftar Pasien</a>
                 </div>
             </div>
-            <a href="login.html">Login</a>
+            <a href="login.html">Logout</a>
         </div>
 
         <section id="register" class="">            
@@ -237,21 +234,24 @@ and open the template in the editor.
                 <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
                     <div class="container"><br><br>
                         <div class ="form-group">
-                            <label for="noRm">No. Rekam Medis</label><br>
+                            <label for="noRm">No. Rekam Medis*</label><br>
                             <input type="text" placeholder="Enter No. RM" id="noRm" required/>
-                            <!--<button type="button" onclick="loadDoc()" id="btn">OK</button><br><br>-->
-                            <!--<h6><i>*Isikan No. RM yang telah terdaftar</i></h6>-->
-                            <!--<p id="output"></p>-->
-                        </div><br><!--<br>-->                        
+                            <button type="button" onclick="cariPasien()" id="btn">OK</button>
+                            <h6><i>*Isikan No. RM yang telah terdaftar</i></h6>
+                        </div><br>                        
                         <div class ="form-group">
-                            <label for="nama">Nama</label><br>
-                            <input type="text" placeholder="Enter Nama" id="nama" required/>
+                            <label for="nama">Nama**</label><br>
+                            <input type="text" placeholder="--Nama--" id="nama" required disabled=""/>
                         </div><br>
                         <div class ="form-group">
-                            <label for="alamat">Alamat Tinggal</label><br>
-                            <input type="text" placeholder="Enter Alamat" id="alamat" required/>
+                            <label for="alamat">Alamat Tinggal**</label><br>
+                            <input type="text" placeholder="--Alamat--" id="alamat" required disabled=""/>
                         </div><br>
-                        <!--<div><h6><i>**Nama dan Alamat akan terisi otomatis</i></h6></div><br>-->
+                        <div class ="form-group">
+                            <label for="nik">NIK**</label><br>
+                            <input type="text" placeholder="--NIK--" id="nik" required disabled=""/>
+                        </div>
+                        <div><h6><i>**Data akan terisi otomatis</i></h6></div><br>
 
                         <div class="form-group">
                             <label for="tanggal">Tanggal Berobat</label><br>
@@ -281,7 +281,7 @@ and open the template in the editor.
                             <button id="save" type="submit" class="signup">Daftar</button>
                         </div><br><br>
                     </div>
-                    <p id="output"></p>
+                    <!--<p id="output"></p>-->
                 </form>
             </article>
         </section>
@@ -289,23 +289,44 @@ and open the template in the editor.
         <script>
             function make_json(form) {
                 var json = {
-                    "noRM": form.noRm.value,
+                    "noRm": form.nik.value,
                     "nama": form.nama.value,
                     "alamat": form.alamat.value,
                     "tanggal": form.tanggal.value,
-                    "namaKlinik": form.klinik.value,
+                    "namaKlinik": form.klinik.value                    
                 };
                 var html = JSON.stringify(json, 0, 100);
-//                var url = "http://202.94.83.190:8080/165314035_rskuServices/webresources/antrean/addAntrian";
-                var url = "http://localhost:8084/165314035_rskuServices/webresources/antrean/addAntrian";
+                var url = "http://202.94.83.190:8080/165314035_rskuServices/webresources/antrean/addAntrian";
+//                var url = "http://localhost:8084/165314035_rskuServices/webresources/antrean/addAntrian";
                 var xhttp = new XMLHttpRequest();
                 xhttp.open('POST', url, false);
                 xhttp.setRequestHeader("Content-type", "application/json");
                 xhttp.send(html);
 
-                alert(html);
+//                alert(html);
+                alert("PENDAFTARAN BERHASIL");
                 document.getElementById("output").innerHTML = html;
                 return false;
+            }
+
+            function cariPasien() {
+                var url = "http://202.94.83.190:8080/165314035_rskuServices/webresources/pasien/cariPasien?noRm=" + noRm.value;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+//                        document.getElementById("output").innerHTML = this.responseText;
+                        var myObj = JSON.parse(this.responseText);
+                        if (myObj !== null) {
+                            document.getElementById("nama").value = myObj[0].nama;
+                            document.getElementById("alamat").value = myObj[0].alamat;
+                            document.getElementById("nik").value = myObj[0].nik;
+                        } else {
+                            alert("Anda belum terdaftar");
+                        }
+                    }
+                };
+                xhttp.open("GET", url, true);
+                xhttp.send();
             }
         </script>
 

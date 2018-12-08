@@ -36,7 +36,7 @@ and open the template in the editor.
             /* Create two columns/boxes that floats next to each other */
             nav {
                 float: left;
-                width: 30%;
+                width: 20%;
                 height: 500px;
                 font-family: trebuchet ms;
                 background: #99dfff;
@@ -244,7 +244,8 @@ and open the template in the editor.
                 <div id="dropMenu" class="dropdown-content">
                     <a href="dokter.html">Daftar Dokter</a>
                     <a href="klinik.html">Daftar Klinik</a>
-                    <a href="Antrean.html" class="current">Daftar Antrean</a>                    
+                    <a href="Antrean.html" class="current">Daftar Antrean</a>
+                    <a href="pasien.html">Daftar Pasien</a>                    
                 </div>
             </div>
             <a href="../login.html">Logout</a>
@@ -273,7 +274,7 @@ and open the template in the editor.
                     function loopingList(response) {
                         var size = JSON.parse(response);
                         var i;
-                        var out = "<table align='center' style='width: 78%;' border='1' class='table-wrapper-scroll-y'><thead><tr><th>ID</th><th>No. Rekam Medis</th><th>Nama Pasien</th><th>Alamat Klinik</th><th>Nama Klinik</th><th>Tanggal Periksa</th></tr></thead>";
+                        var out = "<table align='center' style='width: 75%;' border='1' class='table-wrapper-scroll-y'><thead><tr><th>ID</th><th>No. Rekam Medis</th><th>Nama Pasien</th><th>Alamat Klinik</th><th>Nama Klinik</th><th>Tanggal Periksa</th></tr></thead>";
 
                         for (i = 0; i < size.length; i++) {
                             out += "<tbody><tr><td>" + size[i].id +
